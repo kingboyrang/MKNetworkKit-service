@@ -9,13 +9,25 @@
 #import "SRMNetworkEngine.h"
 
 @implementation SRMNetworkEngine
--(SRMNetworkOperation*) operationWithArgs:(ServiceArgs*) args{
-    NSString *httpWay=args.httpWay!=ServiceHttpGet?@"POST":@"GET";
-    NSString *url=[NSString stringWithFormat:@"http://%@/",[args.webURL host]];
-    NSString *urlPath=[[[args requestURL] absoluteString] stringByReplacingOccurrencesOfString:url withString:@""];
-    [self registerOperationSubclass:[SRMNetworkOperation class]];
-    MKNetworkOperation *op=[self operationWithPath:urlPath params:nil httpMethod:httpWay];
+-(MKNetworkOperation*) operationWithArgs:(ServiceArgs*) args{
+    MKNetworkOperation *op=[self operationWithPath:[args operationPath] params:nil httpMethod:args.httpMethod];
+    op.stringEncoding=args.defaultEncoding;
+    //body内容
+    if (args.httpWay!=ServiceHttpGet) {
+        [op setCustomPostDataEncodingHandler:^NSString *(NSDictionary *postDataDict) {
+            return args.bodyMessage;
+        } forType:args.contentType];
+    }
+    //设置请求头
+    if(args.headers&&[args.headers count]>0)
+    {
+        [op addHeaders:args.headers];
+    }
     [self enqueueOperation:op];
-    return (SRMNetworkOperation*)op;
+    return op;
+}
+- (void)requestWithArgs:(ServiceArgs*) args success:(MKNKResponseBlock)response failure:(MKNKResponseErrorBlock)error{
+    MKNetworkOperation *opr=[self operationWithArgs:args];
+    [opr addCompletionHandler:response errorHandler:error];
 }
 @end

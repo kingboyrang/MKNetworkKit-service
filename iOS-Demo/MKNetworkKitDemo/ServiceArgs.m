@@ -89,6 +89,16 @@ static NSString *defaultWebServiceNameSpace=@"http://WebXml.com.cn/";
     }
     return @"application/x-www-form-urlencoded";
 }
+- (NSString*)httpMethod{
+    return self.httpWay!=ServiceHttpGet?@"POST":@"GET";
+}
+- (NSString*)operationPath{
+    NSURL *url=[self requestURL];
+    if (url.query&&[url.query length]>0) {
+        return [NSString stringWithFormat:@"%@?%@",url.path,url.query];
+    }
+    return [url path];
+}
 -(NSDictionary*)headers{
     if (_headers&&[_headers count]>0) {
         return _headers;

@@ -26,7 +26,6 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "SRMNetworkEngine.h"
-#import "SRMNetworkOperation.h"
 @implementation ViewController
 
 - (void)didReceiveMemoryWarning
@@ -40,26 +39,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  /***
+    NSURL *webURL=[NSURL URLWithString:@"http://www.baidu.com/aa/20140529/bb.aspx?time=01"];
+    NSLog(@"absoluteString=%@",webURL.absoluteString);
+    NSLog(@"relativeString=%@",webURL.relativeString);
+    NSLog(@"scheme=%@",webURL.scheme);
+    NSLog(@"resourceSpecifier=%@",webURL.resourceSpecifier);
+    NSLog(@"host=%@",webURL.host);
+    NSLog(@"port=%@",webURL.port);
+    NSLog(@"user=%@",webURL.user);
+    NSLog(@"password=%@",webURL.password);
+    NSLog(@"path=%@",webURL.path);
+    NSLog(@"fragment=%@",webURL.fragment);
+    NSLog(@"parameterString=%@",webURL.parameterString);
+    NSLog(@"query=%@",webURL.query);
+    NSLog(@"relativePath=%@",webURL.relativePath);
+    ***/
+    
     NSMutableArray *params=[NSMutableArray array];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"695749595",@"qqCode", nil]];
     
     ServiceArgs *args=[[ServiceArgs alloc] init];
     args.methodName=@"qqCheckOnline";//要调用的webservice方法
     args.soapParams=params;//传递方法参数
-    args.httpWay=ServiceHttpSoap1;
+    //args.httpWay=ServiceHttpSoap1;
     
     SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:[args.webURL host]];
-    SRMNetworkOperation *opr=[engine operationWithArgs:args];
-    [opr requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
-         NSLog(@"dic=%@",completedOperation.readonlyPostDictionary);
-         NSLog(@"header=%@",completedOperation.readonlyRequest.allHTTPHeaderFields);
+    [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
+        NSLog(@"dic=%@",completedOperation.readonlyPostDictionary);
+        NSLog(@"header=%@",completedOperation.readonlyRequest.allHTTPHeaderFields);
         NSLog(@"body=%@",completedOperation.responseString);
     } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
         NSLog(@"error=%@",error);
     }];
-    //args.httpWay=ServiceHttpPost;
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload

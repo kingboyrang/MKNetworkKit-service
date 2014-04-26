@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		016DCACB190914F5007C4A9A /* SRMNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DCACA190914F5007C4A9A /* SRMNetworkEngine.m */; };
 		016DCACE19091534007C4A9A /* ServiceArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DCACD19091534007C4A9A /* ServiceArgs.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		016DCAD1190916E8007C4A9A /* SRMNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DCAD0190916E8007C4A9A /* SRMNetworkOperation.m */; };
 		AB2B455716916A44004470F9 /* TestsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2B455616916A44004470F9 /* TestsEngine.m */; };
 		AB2B455F16916F45004470F9 /* HTTPSTestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2B455E16916F45004470F9 /* HTTPSTestEngine.m */; };
 		AB3A3090148F09AE00D06246 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A308F148F09AE00D06246 /* Security.framework */; };
@@ -39,8 +38,6 @@
 		016DCACA190914F5007C4A9A /* SRMNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMNetworkEngine.m; sourceTree = "<group>"; };
 		016DCACC19091534007C4A9A /* ServiceArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceArgs.h; sourceTree = "<group>"; };
 		016DCACD19091534007C4A9A /* ServiceArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceArgs.m; sourceTree = "<group>"; };
-		016DCACF190916E8007C4A9A /* SRMNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMNetworkOperation.h; sourceTree = "<group>"; };
-		016DCAD0190916E8007C4A9A /* SRMNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMNetworkOperation.m; sourceTree = "<group>"; };
 		AB2B455516916A44004470F9 /* TestsEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestsEngine.h; sourceTree = "<group>"; };
 		AB2B455616916A44004470F9 /* TestsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestsEngine.m; sourceTree = "<group>"; };
 		AB2B455D16916F45004470F9 /* HTTPSTestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSTestEngine.h; sourceTree = "<group>"; };
@@ -102,8 +99,6 @@
 				016DCACD19091534007C4A9A /* ServiceArgs.m */,
 				016DCAC9190914F5007C4A9A /* SRMNetworkEngine.h */,
 				016DCACA190914F5007C4A9A /* SRMNetworkEngine.m */,
-				016DCACF190916E8007C4A9A /* SRMNetworkOperation.h */,
-				016DCAD0190916E8007C4A9A /* SRMNetworkOperation.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -265,7 +260,6 @@
 				016DCACB190914F5007C4A9A /* SRMNetworkEngine.m in Sources */,
 				AB6E44DE14CBA43F0089D19C /* FlickrCell.m in Sources */,
 				AB6E44E114CBA62B0089D19C /* FlickrEngine.m in Sources */,
-				016DCAD1190916E8007C4A9A /* SRMNetworkOperation.m in Sources */,
 				AB2B455716916A44004470F9 /* TestsEngine.m in Sources */,
 				AB2B455F16916F45004470F9 /* HTTPSTestEngine.m in Sources */,
 			);

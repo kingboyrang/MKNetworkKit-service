@@ -8,17 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ServiceArgs.h"
-#import "SRMNetworkOperation.h"
 @interface SRMNetworkEngine : MKNetworkEngine
--(SRMNetworkOperation*) operationWithArgs:(ServiceArgs*) args;
+- (MKNetworkOperation*) operationWithArgs:(ServiceArgs*) args;
+- (void)requestWithArgs:(ServiceArgs*) args success:(MKNKResponseBlock)response failure:(MKNKResponseErrorBlock)error;
 @end
-
-/***
-NSMutableArray *params=[NSMutableArray array];
-[params addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"695749595",@"qqCode", nil]];
-
-ServiceArgs *args=[[ServiceArgs alloc] init];
-args.methodName=@"qqCheckOnline";//要调用的webservice方法
-args.soapParams=params;//传递方法参数
-args.httpWay=ServiceHttpPost;
- ***/
